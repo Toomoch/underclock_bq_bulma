@@ -124,7 +124,7 @@ static  fh_pll_t g_fh_pll[MT658X_FH_PLL_TOTAL_NUM] = { //keep track the status o
 
 
 //ARMPLL
-#define ARMPLL_TARGETVCO_1			2002000
+#define ARMPLL_TARGETVCO_1			1700000
 #define ARMPLL_TARGETVCO_2			1664000
 #define ARMPLL_TARGETVCO_3			1495000
 #define ARMPLL_TARGETVCO_4			1365000
@@ -915,8 +915,8 @@ static int mt_h2oc_mempll(void)
 
 	FH_MSG("EN: %s:%d",__func__,g_curr_dramc);
 
-	/*Please note that the DFS can¡¦t be applied in systems with DDR3 DRAM!
-	  It¡¦s only for the mobile DRAM (LPDDR*)! */
+	/*Please note that the DFS canãƒ»t be applied in systems with DDR3 DRAM!
+	  Itãƒ»s only for the mobile DRAM (LPDDR*)! */
 #if 0
 	if( (get_ddr_type() != LPDDR2) && (get_ddr_type() != LPDDR3) ) {
 		FH_MSG("Not LPDDR*");
@@ -991,7 +991,7 @@ static int mt_h2oc_mempll(void)
 	fh_write32(REG_FHCTL_CFG, (1 << 8));
 
 	//Use 2G1 hopping table to DFS
-	//SW need fill 64¡¦b1 in 2G1 DRAM address (channel number = 0)
+	//SW need fill 64ãƒ»b1 in 2G1 DRAM address (channel number = 0)
 	fh_write32(REG_FHDMA_2G1BASE,  __pa(g_mempll_fh_table));
 
 	//sync NCPO value
@@ -1003,8 +1003,8 @@ static int mt_h2oc_mempll(void)
        	mb();
 
 	//Configure hopping slope
-	//sfstr_dts[3:0] = 4¡¦d0(0.27us)
-	//sfstr_dys[3:0] = 4¡¦d9(0.023437500)
+	//sfstr_dts[3:0] = 4ãƒ»d0(0.27us)
+	//sfstr_dys[3:0] = 4ãƒ»d9(0.023437500)
 	//slope = 26MHz * 0.007812500 / 0.27us = 0.75MHz/us < 2.5MHz/us
 	fh_write32(REG_FHCTL2_CFG, ( (0 << 24) | (7 << 28) | 5));
 	
@@ -1066,8 +1066,8 @@ static int mt_oc2h_mempll(void)
 	
 	FH_MSG("EN: %s:%d",__func__,g_curr_dramc);
 	
-	/*Please note that the DFS can¡¦t be applied in systems with DDR3 DRAM!
-	  It¡¦s only for the mobile DRAM (LPDDR*)! */
+	/*Please note that the DFS canãƒ»t be applied in systems with DDR3 DRAM!
+	  Itãƒ»s only for the mobile DRAM (LPDDR*)! */
 #if 0
 	if( (get_ddr_type() != LPDDR2) && (get_ddr_type() != LPDDR3) ) {
 		FH_MSG("Not LPDDR*");
@@ -1141,7 +1141,7 @@ static int mt_oc2h_mempll(void)
 	fh_write32(REG_FHCTL_CFG, (1 << 8));
 
 	//Use 2G1 hopping table to DFS
-	//SW need fill 64¡¦b1 in 2G1 DRAM address (channel number = 0)
+	//SW need fill 64ãƒ»b1 in 2G1 DRAM address (channel number = 0)
 	fh_write32(REG_FHDMA_2G1BASE,  __pa(g_mempll_fh_table));
 
 	//sync NCPO value
@@ -1153,8 +1153,8 @@ static int mt_oc2h_mempll(void)
 	mb();
 
 	//Configure hopping slope
-	//sfstr_dts[3:0] = 4¡¦d0(0.27us)
-	//sfstr_dys[3:0] = 4¡¦d9(0.023437500)
+	//sfstr_dts[3:0] = 4ãƒ»d0(0.27us)
+	//sfstr_dys[3:0] = 4ãƒ»d9(0.023437500)
 	//slope = 26MHz * 0.007812500 / 0.27us = 0.75MHz/us < 2.5MHz/us
 	fh_write32(REG_FHCTL2_CFG, ( (0 << 24) | (7 << 28) | 5));
 	
@@ -1213,8 +1213,8 @@ static int mt_fh_hal_l2h_mempll(void)  //mempll low to high (200->266MHz)
 	
 	FH_MSG("EN: %s:%d",__func__,g_curr_dramc);
 	
-	/*Please note that the DFS can¡¦t be applied in systems with DDR3 DRAM!
-	  It¡¦s only for the mobile DRAM (LPDDR*)! */
+	/*Please note that the DFS canãƒ»t be applied in systems with DDR3 DRAM!
+	  Itãƒ»s only for the mobile DRAM (LPDDR*)! */
 #if 0
 	if( (get_ddr_type() != LPDDR2) && (get_ddr_type() != LPDDR3) ) {
 		FH_MSG("Not LPDDR*");
@@ -1287,7 +1287,7 @@ static int mt_fh_hal_l2h_mempll(void)  //mempll low to high (200->266MHz)
 	fh_write32(REG_FHCTL_CFG, (1 << 8));
 
 	//Use 2G1 hopping table to DFS
-	//SW need fill 64¡¦b1 in 2G1 DRAM address (channel number = 0)
+	//SW need fill 64ãƒ»b1 in 2G1 DRAM address (channel number = 0)
 	fh_write32(REG_FHDMA_2G1BASE,  __pa(g_mempll_fh_table));
 
 	//sync NCPO value
@@ -1298,8 +1298,8 @@ static int mt_fh_hal_l2h_mempll(void)  //mempll low to high (200->266MHz)
 	mb();
 
 	//Configure hopping slope
-	//sfstr_dts[3:0] = 4¡¦d0(0.27us)
-	//sfstr_dys[3:0] = 4¡¦d9(0.023437500)
+	//sfstr_dts[3:0] = 4ãƒ»d0(0.27us)
+	//sfstr_dys[3:0] = 4ãƒ»d9(0.023437500)
 	//slope = 26MHz * 0.007812500 / 0.27us = 0.75MHz/us < 2.5MHz/us
 	fh_write32(REG_FHCTL2_CFG, ( (0 << 24) | (7 << 28) | 5));
 	
@@ -1358,8 +1358,8 @@ static int mt_fh_hal_h2l_mempll(void)  //mempll low to high (200->266MHz)
 	
 	FH_MSG("EN: %s:%d",__func__,g_curr_dramc);
 	
-	/*Please note that the DFS can¡¦t be applied in systems with DDR3 DRAM!
-	  It¡¦s only for the mobile DRAM (LPDDR*)! */
+	/*Please note that the DFS canãƒ»t be applied in systems with DDR3 DRAM!
+	  Itãƒ»s only for the mobile DRAM (LPDDR*)! */
 #if 0
 	if( (get_ddr_type() != LPDDR2) && (get_ddr_type() != LPDDR3) ) {
 		FH_MSG("Not LPDDR*");
@@ -1432,7 +1432,7 @@ static int mt_fh_hal_h2l_mempll(void)  //mempll low to high (200->266MHz)
 	fh_write32(REG_FHCTL_CFG, (1 << 8));
 
 	//Use 2G1 hopping table to DFS
-	//SW need fill 64¡¦b1 in 2G1 DRAM address (channel number = 0)
+	//SW need fill 64ãƒ»b1 in 2G1 DRAM address (channel number = 0)
 	fh_write32(REG_FHDMA_2G1BASE,  __pa(g_mempll_fh_table));
 
 	//sync NCPO value
@@ -1443,8 +1443,8 @@ static int mt_fh_hal_h2l_mempll(void)  //mempll low to high (200->266MHz)
        	mb();
 
 	//Configure hopping slope
-	//sfstr_dts[3:0] = 4¡¦d0(0.27us)
-	//sfstr_dys[3:0] = 4¡¦d9(0.023437500)
+	//sfstr_dts[3:0] = 4ãƒ»d0(0.27us)
+	//sfstr_dys[3:0] = 4ãƒ»d9(0.023437500)
 	//slope = 26MHz * 0.007812500 / 0.27us = 0.75MHz/us < 2.5MHz/us
 	fh_write32(REG_FHCTL2_CFG, ( (0 << 24) | (7 << 28) | 5));
 	
@@ -1971,8 +1971,8 @@ static int mt_fh_hal_l2h_dvfs_mempll(void)  //mempll low to high (266->333MHz)
 		DFE_para fh_para;
 #endif
 	FH_MSG("EN: %s:",__func__);
-	/*Please note that the DFS can¡¦t be applied in systems with DDR3 DRAM!
-	  It¡¦s only for the mobile DRAM (LPDDR*)! */
+	/*Please note that the DFS canãƒ»t be applied in systems with DDR3 DRAM!
+	  Itãƒ»s only for the mobile DRAM (LPDDR*)! */
 
 #if 1	
 	// api change in mt6592, DFS_Detection() instead of get_ddr_type()
@@ -2122,8 +2122,8 @@ static int mt_fh_hal_h2l_dvfs_mempll(void)  //mempll high to low(333->266MHz)
 		DFE_para fh_para;
 #endif
 	FH_MSG("EN: %s:",__func__);
-	/*Please note that the DFS can¡¦t be applied in systems with DDR3 DRAM!
-	  It¡¦s only for the mobile DRAM (LPDDR*)! */
+	/*Please note that the DFS canãƒ»t be applied in systems with DDR3 DRAM!
+	  Itãƒ»s only for the mobile DRAM (LPDDR*)! */
 
 #if 1	
 	// api change in mt6592, DFS_Detection() instead of get_ddr_type()
@@ -2274,8 +2274,8 @@ static int mt_h2oc_dfs_mempll(void)
 	unsigned int	i=0;
 
 	FH_MSG("EN: %s:",__func__);
-	/*Please note that the DFS can¡¦t be applied in systems with DDR3 DRAM!
-	  It¡¦s only for the mobile DRAM (LPDDR*)! */
+	/*Please note that the DFS canãƒ»t be applied in systems with DDR3 DRAM!
+	  Itãƒ»s only for the mobile DRAM (LPDDR*)! */
 #if 0
 	if( (get_ddr_type() != LPDDR2) && (get_ddr_type() != LPDDR3) ) {
 		FH_MSG("Not LPDDR*");
