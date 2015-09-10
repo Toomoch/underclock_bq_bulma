@@ -137,7 +137,7 @@ static struct early_suspend mt_cpufreq_early_suspend_handler =
 };
 #endif
 
-#define DVFS_F0_1   (2002000)   // KHz
+#define DVFS_F0_1   (1700000)   // KHz
 //#define DVFS_F0_2   (1599000)   // KHz
 //#define DVFS_F0_3   (1495000)   // KHz
 //#define DVFS_F0_4   (1391000)   // KHz
